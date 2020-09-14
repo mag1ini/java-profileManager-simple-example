@@ -12,7 +12,7 @@ import org.w3c.dom.Text;
 
 public class ShowProfileActivity extends AppCompatActivity {
 
-    User User;
+    User User=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class ShowProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ShowProfileActivity.this,
                         MainActivity.class);
-                if (User!=null)
+//                if (User!=null)
                     intent.putExtra("user",User);
                 startActivity(intent);
             }

@@ -23,7 +23,7 @@ public class InputProfileActivity extends AppCompatActivity {
     EditText edit_phone;
     Spinner spinner_city;
 
-    User User;
+    User User = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,8 @@ public class InputProfileActivity extends AppCompatActivity {
 
         Bundle arguments = getIntent().getExtras();
         User = (User) arguments.getSerializable("user");
+        if (User!=null)
+            this.FillFiedls(User);
 
         edit_firstname.addTextChangedListener(new TextWatcher() {
             @Override
@@ -85,12 +87,27 @@ public class InputProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InputProfileActivity.this,
                         MainActivity.class);
-                if (User!=null)
+//                if (User!=null)
                     intent.putExtra("user",User);
 
                 startActivity(intent);
             }
         });
+
+    }
+
+    protected void FillFiedls(User user) {
+        edit_firstname.setText(user.Firstname);
+        edit_lastname.setText(user.Lastname);
+        edit_phone.setText(user.Phone);
+
+        for(int i=0; i<spinner_city.getCount();i++) {
+            if (spinner_city.getItemAtPosition(i).equals(user.City)) {
+                spinner_city.setSelection(i);
+                break;
+            }
+        }
+   
 
     }
 
