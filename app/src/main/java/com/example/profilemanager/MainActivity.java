@@ -1,5 +1,6 @@
 package com.example.profilemanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,7 +24,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn_fillProfile = findViewById(R.id.btn_fillProfile);
+        Button btn_showProfile = findViewById(R.id.btn_showProfile);
 
+        btn_fillProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        InputProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_showProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        ShowProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
