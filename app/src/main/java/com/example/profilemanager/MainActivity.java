@@ -30,17 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_fillProfile = findViewById(R.id.btn_fillProfile);
         Button btn_showProfile = findViewById(R.id.btn_showProfile);
-        TextView t = findViewById(R.id.tv_home);
+
 
         Bundle arguments = getIntent().getExtras();
-
-        if(arguments!=null) {
+        if (arguments!= null) {
             User = (User) arguments.getSerializable("user");
-            t.setText(User.Firstname);
-        }
-        else
-        {
-            t.setText("check");
         }
 
 

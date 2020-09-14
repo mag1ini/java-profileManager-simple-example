@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class ShowProfileActivity extends AppCompatActivity {
 
     User User;
@@ -20,10 +22,9 @@ public class ShowProfileActivity extends AppCompatActivity {
         Button btn_back = findViewById(R.id.btn_back);
 
         Bundle arguments = getIntent().getExtras();
-
-        if (arguments!=null) {
+        if (arguments!= null) {
             User = (User) arguments.getSerializable("user");
-            tv_firstname.setText(User.Firstname);
+            FillTextViewsFiedls(User);
         }
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -31,9 +32,26 @@ public class ShowProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ShowProfileActivity.this,
                         MainActivity.class);
-                intent.putExtra("user",User);
+                if (User!=null)
+                    intent.putExtra("user",User);
                 startActivity(intent);
             }
         });
+    }
+
+    protected void FillTextViewsFiedls(User user) {
+        TextView tv_firstname = findViewById(R.id.tv_firstname);
+        tv_firstname.setText(user.Firstname);
+
+        TextView tv_lastname = findViewById(R.id.tv_lastname);
+        tv_lastname.setText(user.Lastname);
+
+        TextView tv_phone = findViewById(R.id.tv_phone);
+        tv_phone.setText(user.Phone);
+
+        TextView tv_city = findViewById(R.id.tv_city);
+        tv_city.setText(user.City);
+
+
     }
 }

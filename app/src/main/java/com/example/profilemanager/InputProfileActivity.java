@@ -11,6 +11,10 @@ import android.widget.EditText;
 public class InputProfileActivity extends AppCompatActivity {
 
     EditText edit_firstname;
+    EditText edit_lastname;
+    EditText edit_phone;
+    EditText edit_city;
+
     User User;
 
     @Override
@@ -23,15 +27,26 @@ public class InputProfileActivity extends AppCompatActivity {
         Button btn_save = findViewById(R.id.btn_save);
 
         Bundle arguments = getIntent().getExtras();
-
-        User = (User) arguments.getSerializable("user");
+        if (arguments!= null) {
+            User = (User) arguments.getSerializable("user");
+        }
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 edit_firstname = findViewById(R.id.edt_firstname);
                 String firstname = edit_firstname.getText().toString();
-                User = new User(firstname);
+
+                edit_lastname = findViewById(R.id.edt_lastname);
+                String lastname = edit_lastname.getText().toString();
+
+                edit_phone = findViewById(R.id.edt_phone);
+                String phone = edit_phone.getText().toString();
+
+                edit_city = findViewById(R.id.edt_city);
+                String city = edit_city.getText().toString();
+
+                User = new User(firstname,lastname,phone,city);
             }
         });
 
@@ -40,10 +55,13 @@ public class InputProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InputProfileActivity.this,
                         MainActivity.class);
-                intent.putExtra("user",User);
+                if (User!=null)
+                    intent.putExtra("user",User);
 
                 startActivity(intent);
             }
         });
+
     }
+
 }

@@ -3,9 +3,16 @@ package com.example.profilemanager;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    String Firstname;
 
-    public User(String firstname) {
+    public String Firstname;
+    public String Lastname;
+    public String Phone;
+    public String City;
+
+    public User(String firstname, String lastname, String phone, String city) {
         this.Firstname = firstname;
+        this.Lastname = lastname;
+        this.Phone = phone;
+        this.City = city;
     }
 }
