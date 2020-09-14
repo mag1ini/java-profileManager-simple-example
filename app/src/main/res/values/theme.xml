@@ -4,4 +4,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorSilver">#E1E5EA</color>
     <color name="colorDeepOrange">#F06322</color>
+    <color name="colorRed">#FF0000</color>
 </resources>

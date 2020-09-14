@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import javax.xml.validation.Validator;
 
@@ -53,11 +54,14 @@ public class InputProfileActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+                Drawable drawable = edit_firstname.getBackground(); // get current EditText drawable
+                drawable.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP); // change the drawable color
+                edit_firstname.setBackgroundDrawable(drawable);
 
+                TextView tv_feedbackMessage_firstname = findViewById(R.id.tv_feedbackMessage_firstname);
 
-//                Drawable drawable = edit_firstname.getBackground(); // get current EditText drawable
-//                drawable.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP); // change the drawable color
-//                edit_firstname.setBackgroundDrawable(drawable);
+                String feedbackMsg = User.validateFirstname(edit_firstname.getText().toString());
+                tv_feedbackMessage_firstname.setText(feedbackMsg);
 
             }
 
@@ -107,7 +111,7 @@ public class InputProfileActivity extends AppCompatActivity {
                 break;
             }
         }
-   
+
 
     }
 
