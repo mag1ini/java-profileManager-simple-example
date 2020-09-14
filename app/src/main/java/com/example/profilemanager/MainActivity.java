@@ -18,6 +18,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    public User User;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
         Button btn_fillProfile = findViewById(R.id.btn_fillProfile);
         Button btn_showProfile = findViewById(R.id.btn_showProfile);
 
+        Intent intent = getIntent();
+        String firstname = intent.getStringExtra("firstname");
+        User = new User(firstname);
+
+
         btn_fillProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
                         InputProfileActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
                         ShowProfileActivity.class);
+                intent.putExtra("firstname", User.Firstname);
                 startActivity(intent);
             }
         });
