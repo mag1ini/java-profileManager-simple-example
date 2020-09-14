@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProfileManager</string>
+    <string name="app_name">My Application</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -7,7 +7,30 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="h1">Hello first activity</string>
+    <string name="h2">Hello second activity. Arg: %1$s</string>
+
+    <string name="btn">Click here!</string>
+
+
+    <string name="inputProfile">Fill in your details</string>
+    <string name="firstname">First name</string>
+    <string name="lastname">Last name</string>
+    <string name="phone">Phone</string>
+
+    <string name="city">City</string>
+    <string-array name="cities">
+        <item>Kherson</item>
+        <item>Odessa</item>
+        <item>Lviv</item>
+        <item>Donetsk</item>
+        <item>Kiev</item>
+    </string-array>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="home">HOME</string>
+    <string name="fillProfile">Fill profile</string>
+    <string name="showProfile">Show profile</string>
+    <string name="profile">Your profile</string>
 
 </resources>

@@ -1,9 +1,0 @@
-<resources>
-    <string name="inputProfile">Fill in your details</string>
-    <string name="firstname">First name</string>
-    <string name="lastname">Last name</string>
-    <string name="phone">Phone</string>
-    <string name="city">City</string>
-    <string name="back">Back</string>
-    <string name="save">Save</string>
-</resources>

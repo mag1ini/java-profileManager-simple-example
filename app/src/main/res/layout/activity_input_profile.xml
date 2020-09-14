@@ -87,11 +87,12 @@
             android:textColor="@color/colorBlack"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/edt_city"
+        <Spinner
+            android:id="@+id/spinner_city"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textCursorDrawable="@null"
+            android:entries="@array/cities"
             android:backgroundTint="@color/colorDeepOrange"/>
 
         <Button

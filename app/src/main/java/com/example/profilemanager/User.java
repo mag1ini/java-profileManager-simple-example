@@ -17,6 +17,7 @@ public class User implements Serializable {
         this.Lastname = lastname;
         this.Phone = phone;
         this.City = city;
+
     }
 
 }

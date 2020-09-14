@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import javax.xml.validation.Validator;
 
@@ -20,7 +21,7 @@ public class InputProfileActivity extends AppCompatActivity {
     EditText edit_firstname;
     EditText edit_lastname;
     EditText edit_phone;
-    EditText edit_city;
+    Spinner spinner_city;
 
     User User;
 
@@ -36,7 +37,7 @@ public class InputProfileActivity extends AppCompatActivity {
         edit_firstname = findViewById(R.id.edt_firstname);
         edit_lastname = findViewById(R.id.edt_lastname);
         edit_phone = findViewById(R.id.edt_phone);
-        edit_city = findViewById(R.id.edt_city);
+        spinner_city = findViewById(R.id.spinner_city);
 
         edit_firstname.addTextChangedListener(new TextWatcher() {
             @Override
@@ -76,7 +77,7 @@ public class InputProfileActivity extends AppCompatActivity {
 
                 String phone = edit_phone.getText().toString();
 
-                String city = edit_city.getText().toString();
+                String city = spinner_city.getSelectedItem().toString();
 
                 User = new User(firstname,lastname,phone,city);
             }
