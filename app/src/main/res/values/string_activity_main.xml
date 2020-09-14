@@ -1,0 +1,5 @@
+<resources>
+    <string name="home">HOME</string>
+    <string name="fillProfile">Fill profile</string>
+    <string name="showProfile">Show profile</string>
+</resources>
