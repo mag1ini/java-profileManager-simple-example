@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+
     public String Firstname;
     public String Lastname;
     public String Phone;
