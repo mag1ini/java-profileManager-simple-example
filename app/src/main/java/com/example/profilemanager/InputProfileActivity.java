@@ -39,6 +39,9 @@ public class InputProfileActivity extends AppCompatActivity {
         edit_phone = findViewById(R.id.edt_phone);
         spinner_city = findViewById(R.id.spinner_city);
 
+        Bundle arguments = getIntent().getExtras();
+        User = (User) arguments.getSerializable("user");
+
         edit_firstname.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -61,12 +64,6 @@ public class InputProfileActivity extends AppCompatActivity {
 
             }
         });
-
-
-        Bundle arguments = getIntent().getExtras();
-        if (arguments!= null) {
-            User = (User) arguments.getSerializable("user");
-        }
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override

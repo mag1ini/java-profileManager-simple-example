@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-
     public String Firstname;
     public String Lastname;
     public String Phone;
@@ -17,7 +16,6 @@ public class User implements Serializable {
         this.Lastname = lastname;
         this.Phone = phone;
         this.City = city;
-
     }
 
 }

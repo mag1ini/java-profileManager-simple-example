@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Bundle arguments = getIntent().getExtras();
+
         if (arguments!= null) {
             User = (User) arguments.getSerializable("user");
         }

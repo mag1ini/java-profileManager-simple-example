@@ -18,14 +18,12 @@ public class ShowProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_profile);
 
-        TextView tv_firstname = findViewById(R.id.tv_firstname);
         Button btn_back = findViewById(R.id.btn_back);
 
         Bundle arguments = getIntent().getExtras();
-        if (arguments!= null) {
-            User = (User) arguments.getSerializable("user");
+        User = (User) arguments.getSerializable("user");
+        if (User!=null)
             FillTextViewsFiedls(User);
-        }
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
