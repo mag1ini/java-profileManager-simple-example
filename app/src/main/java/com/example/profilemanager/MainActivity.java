@@ -15,10 +15,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.profilemanager.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    public User User;
+    public User User = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_fillProfile = findViewById(R.id.btn_fillProfile);
         Button btn_showProfile = findViewById(R.id.btn_showProfile);
+        TextView t = findViewById(R.id.tv_home);
 
-        Intent intent = getIntent();
-        String firstname = intent.getStringExtra("firstname");
-        User = new User(firstname);
+        Bundle arguments = getIntent().getExtras();
+
+        if(arguments!=null) {
+            User = (User) arguments.getSerializable("user");
+            t.setText(User.Firstname);
+        }
+        else
+        {
+            t.setText("check");
+        }
 
 
         btn_fillProfile.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
                         InputProfileActivity.class);
-
+                intent.putExtra("user",User);
                 startActivity(intent);
             }
         });
@@ -48,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
                         ShowProfileActivity.class);
-                intent.putExtra("firstname", User.Firstname);
+                intent.putExtra("user",User);
                 startActivity(intent);
             }
         });
