@@ -38,6 +38,10 @@ public class ShowProfileActivity extends AppCompatActivity {
     }
 
     protected void FillTextViewsFiedls(User user) {
+        TextView tv_title = findViewById(R.id.tv_profile);
+
+        tv_title.setText(R.string.profile);
+
         TextView tv_firstname = findViewById(R.id.tv_firstname);
         tv_firstname.setText(user.Firstname);
 

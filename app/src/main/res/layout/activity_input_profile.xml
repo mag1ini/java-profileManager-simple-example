@@ -93,7 +93,8 @@
             android:layout_height="50dp"
             android:textCursorDrawable="@null"
             android:entries="@array/cities"
-            android:backgroundTint="@color/colorDeepOrange"/>
+            android:backgroundTint="@color/colorDeepOrange"
+            android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btn_save"
@@ -119,32 +120,5 @@
 
 
     </LinearLayout>
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_save"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/lnrlt"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:background="@color/colorWhite"-->
-<!--        android:padding="20dp"-->
-<!--        android:text="@string/save"-->
-<!--        android:textColor="@color/colorBlack"-->
-<!--        android:textSize="20sp" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_back"-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/btn_save"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:background="@color/colorWhite"-->
-<!--        android:padding="20dp"-->
-<!--        android:text="@string/back"-->
-<!--        android:textColor="@color/colorBlack"-->
-<!--        android:textSize="20sp" />-->
-
 
 </RelativeLayout>

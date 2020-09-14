@@ -30,7 +30,7 @@
     <string name="back">Back</string>
     <string name="home">HOME</string>
     <string name="fillProfile">Fill profile</string>
-    <string name="showProfile">Show profile</string>
+    <string name="showDefaultProfile">Profile\' Mr. Doe</string>
     <string name="profile">Your profile</string>
 
 </resources>
