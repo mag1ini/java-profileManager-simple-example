@@ -1,8 +1,11 @@
 package com.example.profilemanager;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
+
 
     public String Firstname;
     public String Lastname;
@@ -15,4 +18,5 @@ public class User implements Serializable {
         this.Phone = phone;
         this.City = city;
     }
+
 }
