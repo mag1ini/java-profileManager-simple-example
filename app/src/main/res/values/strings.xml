@@ -20,11 +20,10 @@
 
     <string name="city">City</string>
     <string-array name="cities">
-        <item>Kherson</item>
-        <item>Odessa</item>
-        <item>Lviv</item>
-        <item>Donetsk</item>
-        <item>Kiev</item>
+        <item>Moscow</item>
+        <item>Samara</item>
+        <item>Kazan</item>
+        <item>Novosibirsk</item>
     </string-array>
     <string name="save">Save</string>
     <string name="back">Back</string>
