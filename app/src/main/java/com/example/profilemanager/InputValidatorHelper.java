@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class InputValidatorHelper {
 
-    public static final String isValid = "is valid";
+    public static final String isValid = "";
     private static final String firstnameFeedbackMessage="First Name invalid";
     private static final String lastnameFeedbackMessage="Last Name invalid";
     private static final String phoneFeedbackMessage="Phone invalid";
