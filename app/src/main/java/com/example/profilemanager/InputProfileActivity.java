@@ -1,15 +1,9 @@
 package com.example.profilemanager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import javax.xml.validation.Validator;
 
 public class InputProfileActivity extends AppCompatActivity {
 
@@ -115,7 +107,9 @@ public class InputProfileActivity extends AppCompatActivity {
 
                 String city = spinner_city.getSelectedItem().toString();
 
-                User = new User(firstname, lastname, phone, city);
+                if(UserValidator.isUserValid(firstname,lastname,phone))  {
+                    User = new User(firstname, lastname, phone, city);
+                }
             }
         });
 
@@ -131,18 +125,25 @@ public class InputProfileActivity extends AppCompatActivity {
             }
         });
     }
-
+    //..............................................................................................
+    private void Initialize() {
+        this.InitializeBtn();
+        this.InitializeEdt();
+        this.InitializeTv();
+        this.InitializeSpnr();
+    }
+    //..............................................................................................
     private void InitializeBtn() {
         btn_back = findViewById(R.id.btn_back);
         btn_save = findViewById(R.id.btn_save);
     }
-
+    //..............................................................................................
     private void InitializeEdt() {
         edit_firstname = findViewById(R.id.edt_firstname);
         edit_lastname = findViewById(R.id.edt_lastname);
         edit_phone = findViewById(R.id.edt_phone);
     }
-
+    //..............................................................................................
     private void InitializeTv() {
         tv_feedbackMsg_firstname
                 = findViewById(R.id.tv_feedbackMessage_firstname);
@@ -151,58 +152,34 @@ public class InputProfileActivity extends AppCompatActivity {
         tv_feedbackMsg_phone
                 = findViewById(R.id.tv_feedbackMessage_phone);
     }
-
+    //..............................................................................................
     private void InitializeSpnr() {
         spinner_city = findViewById(R.id.spinner_city);
     }
-
-    private void Initialize() {
-        this.InitializeBtn();
-        this.InitializeEdt();
-        this.InitializeTv();
-        this.InitializeSpnr();
-    }
-//        btn_back = findViewById(R.id.btn_back);
-//        btn_save = findViewById(R.id.btn_save);
-//
-//        edit_firstname = findViewById(R.id.edt_firstname);
-//        tv_feedbackMsg_firstname
-//                = findViewById(R.id.tv_feedbackMessage_firstname);
-//
-//
-//        edit_lastname = findViewById(R.id.edt_lastname);
-//        tv_feedbackMsg_lastname
-//                = findViewById(R.id.tv_feedbackMessage_lastname);
-//
-//        edit_phone = findViewById(R.id.edt_phone);
-//        tv_feedbackMsg_phone
-//                = findViewById(R.id.tv_feedbackMessage_phone);
-//
-//        spinner_city = findViewById(R.id.spinner_city);
-
+    //..............................................................................................
     private void setColorEdtValid(EditText edt) {
         edt.getBackground().mutate()
-                .setColorFilter(getResources().getColor(R.color.colorDeepOrange), PorterDuff.Mode.SRC_ATOP);
+                .setColorFilter(getResources()
+                        .getColor(R.color.colorDeepOrange), PorterDuff.Mode.SRC_ATOP);
     }
-
+    //..............................................................................................
     private void setColorEdtInvalid(EditText edt) {
         edt.getBackground().mutate()
-                .setColorFilter(getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_ATOP);
+                .setColorFilter(getResources()
+                        .getColor(R.color.colorRed), PorterDuff.Mode.SRC_ATOP);
     }
-
+    //..............................................................................................
     private void setFeedbackMessage(EditText editText, TextView textView) {
-        InputValidatorHelper validator = new InputValidatorHelper();
+        String feedbackMessage = ValidatorHelper.getValidatedFeedbackMsg(editText);
 
-        String feedbackMessage = validator.Validate(editText);
-
-        if (feedbackMessage.equals(InputValidatorHelper.isValid))
+        if (feedbackMessage.equals(ValidatorHelper.isValid))
             InputProfileActivity.this.setColorEdtValid(editText);
         else
             InputProfileActivity.this.setColorEdtInvalid(editText);
 
         textView.setText(feedbackMessage);
     }
-
+    //..............................................................................................
     protected void FillFiedls(User user) {
         edit_firstname.setText(user.Firstname);
         edit_lastname.setText(user.Lastname);
@@ -215,5 +192,4 @@ public class InputProfileActivity extends AppCompatActivity {
             }
         }
     }
-
 }

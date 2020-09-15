@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-
     public String Firstname;
     public String Lastname;
     public String Phone;
@@ -19,10 +18,4 @@ public class User implements Serializable {
         this.City = city;
     }
 
-    public static String validateFirstname(String firstname) {
-        if (firstname.equals("123"))
-            return "is firstname not correct";
-
-       return "";
-    }
 }
